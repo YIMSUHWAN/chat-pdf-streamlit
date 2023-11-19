@@ -1,8 +1,11 @@
+import streamlit as st
 __import__('pysqlite3')
 import sys
 sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 
 # pdf
+import os
+import tempfile
 from langchain.document_loaders import PyPDFLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 
@@ -14,10 +17,8 @@ from langchain.embeddings import OpenAIEmbeddings
 from langchain.chat_models import ChatOpenAI
 from langchain.chains import RetrievalQA
 
-import streamlit as st
-import tempfile
-import os
-from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler
+
+# from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler
 
 ################################# 
 
